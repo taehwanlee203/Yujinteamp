@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달릴사람? 부천핸썹!</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/pointmall.css">
+    <link rel="shortcut icon" href="images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet" />
+</head>
+  
+</head>
+<body>
+    <div class="menu">
+        <a href="index.html">홈</a>
+    </div>
+      <div class="header">포인트몰</div>
+    
+      <div class="point-balance">
+        <div>내 포인트</div>
+  <div><strong id="point">12,300</strong> P</div>
+  <div>보유 상품</div>
+  <div><strong id="ownedCount" onclick="showOwnedItems()" style="cursor:pointer;">0</strong></div>
+      </div>
+      <div class="category-bar">
+        <button onclick="filterCategory('all')">전체</button>
+        <button onclick="filterCategory('gift')">기념품</button>
+        <button onclick="filterCategory('ticket')">체험권</button>
+        <button onclick="filterCategory('voucher')">상품권</button>
+      </div>
+    
+      <div class="product-list" id="productList">
+      </div>
+
+      <button class="bpay-btn" onclick="location.href='bpay_point.html'">💸 부천페이로 포인트 전환하기</button>
+
+      <script src="js/pointmall.js"></script>
+    </body>
+    </html>
+    
+</body>
+</html>
