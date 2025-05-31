@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>부천페이로 전환</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Pretendard', sans-serif;
+    }
+
+    body {
+      background: #F9FAF8;
+      padding: 1.5rem;
+    }
+
+    /* menu */
+.menu {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 60px;
+    background-color: #fff;
+    opacity: 80%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.menu a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+}
+
+.menu a:hover {
+    color: #24AAE1;
+}
+
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .balance {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #FF9900;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e98200;
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="pointmall.html">뒤로 가기</a>
+    </div>
+  <div class="container">
+    <h1>부천페이 전환</h1>
+    <div class="balance">보유 포인트: <strong id="currentPoint">0</strong> P</div>
+
+    <input type="number" id="convertAmount" placeholder="전환할 포인트 입력">
+    <button onclick="convertToBpay()">전환하기</button>
+
+    <div id="resultMessage" class="message"></div>
+  </div>
+
+  <script>
+    const pointKey = 'userPoint';
+    const defaultPoint = 12300;
+
+    function getCurrentPoint() {
+      const saved = localStorage.getItem(pointKey);
+      return saved ? parseInt(saved) : defaultPoint;
+    }
+
+    function setCurrentPoint(value) {
+      localStorage.setItem(pointKey, value);
+      document.getElementById('currentPoint').textContent = value.toLocaleString();
+    }
+
+    function convertToBpay() {
+      const amountInput = document.getElementById('convertAmount');
+      const message = document.getElementById('resultMessage');
+      const amount = parseInt(amountInput.value);
+      const current = getCurrentPoint();
+
+      message.classList.remove('error');
+      message.textContent = '';
+
+      if (isNaN(amount) || amount <= 0) {
+        message.textContent = '유효한 포인트를 입력하세요.';
+        message.classList.add('error');
+        return;
+      }
+
+      if (current == 0) {
+        message.textContent = '보유 포인트가 없습니다.';
+        message.classList.add('error');
+        return;
+      }
+      
+      if (amount > current) {
+        message.textContent = '보유 포인트보다 많이 입력하셨습니다.';
+        message.classList.add('error');
+        return;
+      }
+      
+
+      // 🧪 모의 API 호출
+      console.log('[MOCK API] 부천페이로 전환 요청');
+      console.log(`요청 포인트: ${amount}`);
+      console.log('API 응답: 성공 ✅');
+
+      const updatedPoint = current - amount;
+      setCurrentPoint(updatedPoint);
+
+      message.textContent = `${amount.toLocaleString()}P를 부천페이로 전환했습니다.`;
+      amountInput.value = '';
+    }
+
+    // 페이지 로드 시 현재 포인트 표시
+    document.addEventListener('DOMContentLoaded', () => {
+      const current = getCurrentPoint();
+      setCurrentPoint(current); // 보여주기 위함
+    });
+  </script>
+</body>
+</html>

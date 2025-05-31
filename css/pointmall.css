@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
+  }
+  body {
+    background: #F0F8EC;
+    color: #333;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+    margin-bottom: 4rem;
+}
+
+/* menu */
+.menu {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 60px;
+    background-color: #fff;
+    opacity: 80%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.menu a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+}
+
+.menu a:hover {
+    color: #24AAE1;
+}
+
+  .header {
+    background-color: #7BC950;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .point-balance {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .category-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-bar button {
+    padding: 0.5rem 1rem;
+    background: #E0F5D9;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 0.3rem;
+  }
+
+  .product-point {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exchange-btn {
+    background: #00AEEF;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  /* 부천페이 전환 버튼 스타일 */
+  .bpay-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background: #FFDE5D;
+    margin-top: 1rem;
+
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .bpay-btn:hover {
+    background: #f4c300e9;
+  }
